@@ -36,6 +36,7 @@ namespace EasyTravian
             this.tcMain = new System.Windows.Forms.TabControl();
             this.tpBrowser = new System.Windows.Forms.TabPage();
             this.pnlBrowser = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.webBrowser = new System.Windows.Forms.WebBrowser();
             this.tpBuild = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -106,6 +107,9 @@ namespace EasyTravian
             this.RightToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.LeftToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.ContentPanel = new System.Windows.Forms.ToolStripContentPanel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.txtbxUri = new System.Windows.Forms.TextBox();
+            this.btnClipboardUrl = new System.Windows.Forms.Button();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -113,6 +117,7 @@ namespace EasyTravian
             this.tcMain.SuspendLayout();
             this.tpBrowser.SuspendLayout();
             this.pnlBrowser.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.tpBuild.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridProduction)).BeginInit();
@@ -141,6 +146,7 @@ namespace EasyTravian
             this.panel4.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStripContainer1
@@ -149,11 +155,11 @@ namespace EasyTravian
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.layMain);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(1013, 542);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(992, 692);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(1013, 566);
+            this.toolStripContainer1.Size = new System.Drawing.Size(992, 716);
             this.toolStripContainer1.TabIndex = 1;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
@@ -173,7 +179,7 @@ namespace EasyTravian
             this.layMain.RowCount = 2;
             this.layMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 0F));
             this.layMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.layMain.Size = new System.Drawing.Size(1013, 542);
+            this.layMain.Size = new System.Drawing.Size(992, 692);
             this.layMain.TabIndex = 2;
             // 
             // tcMain
@@ -187,7 +193,7 @@ namespace EasyTravian
             this.tcMain.Location = new System.Drawing.Point(3, 3);
             this.tcMain.Name = "tcMain";
             this.tcMain.SelectedIndex = 0;
-            this.tcMain.Size = new System.Drawing.Size(1007, 536);
+            this.tcMain.Size = new System.Drawing.Size(986, 686);
             this.tcMain.TabIndex = 1;
             this.tcMain.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tcMain_Selecting);
             this.tcMain.SelectedIndexChanged += new System.EventHandler(this.tcMain_SelectedIndexChanged);
@@ -198,28 +204,46 @@ namespace EasyTravian
             this.tpBrowser.Location = new System.Drawing.Point(4, 22);
             this.tpBrowser.Name = "tpBrowser";
             this.tpBrowser.Padding = new System.Windows.Forms.Padding(3);
-            this.tpBrowser.Size = new System.Drawing.Size(999, 510);
+            this.tpBrowser.Size = new System.Drawing.Size(978, 660);
             this.tpBrowser.TabIndex = 0;
             this.tpBrowser.Text = "Browser";
             this.tpBrowser.UseVisualStyleBackColor = true;
             // 
             // pnlBrowser
             // 
-            this.pnlBrowser.Controls.Add(this.webBrowser);
+            this.pnlBrowser.Controls.Add(this.tableLayoutPanel3);
             this.pnlBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlBrowser.Location = new System.Drawing.Point(3, 3);
             this.pnlBrowser.Name = "pnlBrowser";
-            this.pnlBrowser.Size = new System.Drawing.Size(993, 504);
+            this.pnlBrowser.Size = new System.Drawing.Size(972, 654);
             this.pnlBrowser.TabIndex = 0;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Controls.Add(this.panel5, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.webBrowser, 0, 1);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 2;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(972, 654);
+            this.tableLayoutPanel3.TabIndex = 3;
+            this.tableLayoutPanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel3_Paint);
             // 
             // webBrowser
             // 
             this.webBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser.Location = new System.Drawing.Point(0, 0);
+            this.webBrowser.Location = new System.Drawing.Point(3, 33);
             this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser.Name = "webBrowser";
-            this.webBrowser.Size = new System.Drawing.Size(993, 504);
+            this.webBrowser.ScriptErrorsSuppressed = true;
+            this.webBrowser.Size = new System.Drawing.Size(966, 622);
             this.webBrowser.TabIndex = 1;
+            this.webBrowser.Navigated += new System.Windows.Forms.WebBrowserNavigatedEventHandler(this.webBrowser_Navigated);
             // 
             // tpBuild
             // 
@@ -227,7 +251,7 @@ namespace EasyTravian
             this.tpBuild.Location = new System.Drawing.Point(4, 22);
             this.tpBuild.Name = "tpBuild";
             this.tpBuild.Padding = new System.Windows.Forms.Padding(3);
-            this.tpBuild.Size = new System.Drawing.Size(999, 510);
+            this.tpBuild.Size = new System.Drawing.Size(978, 660);
             this.tpBuild.TabIndex = 1;
             this.tpBuild.Text = "Build";
             this.tpBuild.UseVisualStyleBackColor = true;
@@ -262,7 +286,7 @@ namespace EasyTravian
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(993, 504);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(972, 654);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // label10
@@ -273,9 +297,9 @@ namespace EasyTravian
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.label10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label10.Location = new System.Drawing.Point(664, 28);
+            this.label10.Location = new System.Drawing.Point(650, 28);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(326, 20);
+            this.label10.Size = new System.Drawing.Size(319, 20);
             this.label10.TabIndex = 15;
             this.label10.Text = "Need to build";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -290,9 +314,9 @@ namespace EasyTravian
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label3.Location = new System.Drawing.Point(3, 364);
+            this.label3.Location = new System.Drawing.Point(3, 514);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(655, 20);
+            this.label3.Size = new System.Drawing.Size(641, 20);
             this.label3.TabIndex = 10;
             this.label3.Text = "Production in this village";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -307,9 +331,9 @@ namespace EasyTravian
             this.gridProduction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.tableLayoutPanel1.SetColumnSpan(this.gridProduction, 2);
             this.gridProduction.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gridProduction.Location = new System.Drawing.Point(3, 387);
+            this.gridProduction.Location = new System.Drawing.Point(3, 537);
             this.gridProduction.Name = "gridProduction";
-            this.gridProduction.Size = new System.Drawing.Size(655, 114);
+            this.gridProduction.Size = new System.Drawing.Size(641, 114);
             this.gridProduction.TabIndex = 9;
             this.gridProduction.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.gridProduction_DataBindingComplete);
             // 
@@ -321,9 +345,9 @@ namespace EasyTravian
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label2.Location = new System.Drawing.Point(333, 28);
+            this.label2.Location = new System.Drawing.Point(326, 28);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(325, 20);
+            this.label2.Size = new System.Drawing.Size(318, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "Buildings";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -338,7 +362,7 @@ namespace EasyTravian
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label1.Location = new System.Drawing.Point(3, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(324, 20);
+            this.label1.Size = new System.Drawing.Size(317, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Resources";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -355,7 +379,7 @@ namespace EasyTravian
             this.gridResources.MultiSelect = false;
             this.gridResources.Name = "gridResources";
             this.tableLayoutPanel1.SetRowSpan(this.gridResources, 3);
-            this.gridResources.Size = new System.Drawing.Size(324, 310);
+            this.gridResources.Size = new System.Drawing.Size(317, 460);
             this.gridResources.TabIndex = 1;
             this.gridResources.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridResources_CellEndEdit);
             this.gridResources.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.gridBuildings_DataError);
@@ -369,10 +393,10 @@ namespace EasyTravian
             this.gridBuildings.AllowUserToResizeRows = false;
             this.gridBuildings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridBuildings.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridBuildings.Location = new System.Drawing.Point(333, 51);
+            this.gridBuildings.Location = new System.Drawing.Point(326, 51);
             this.gridBuildings.Name = "gridBuildings";
             this.tableLayoutPanel1.SetRowSpan(this.gridBuildings, 3);
-            this.gridBuildings.Size = new System.Drawing.Size(325, 310);
+            this.gridBuildings.Size = new System.Drawing.Size(318, 460);
             this.gridBuildings.TabIndex = 6;
             this.gridBuildings.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.gridBuildings_CellBeginEdit);
             this.gridBuildings.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridBuildings_CellEndEdit);
@@ -386,11 +410,11 @@ namespace EasyTravian
             this.gridResourceOveralls.AllowUserToResizeRows = false;
             this.gridResourceOveralls.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridResourceOveralls.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridResourceOveralls.Location = new System.Drawing.Point(664, 387);
+            this.gridResourceOveralls.Location = new System.Drawing.Point(650, 537);
             this.gridResourceOveralls.Name = "gridResourceOveralls";
             this.gridResourceOveralls.ReadOnly = true;
             this.gridResourceOveralls.RowHeadersVisible = false;
-            this.gridResourceOveralls.Size = new System.Drawing.Size(326, 114);
+            this.gridResourceOveralls.Size = new System.Drawing.Size(319, 114);
             this.gridResourceOveralls.TabIndex = 11;
             this.gridResourceOveralls.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.gridResourceOveralls_DataBindingComplete);
             // 
@@ -402,9 +426,9 @@ namespace EasyTravian
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.label8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label8.Location = new System.Drawing.Point(664, 364);
+            this.label8.Location = new System.Drawing.Point(650, 514);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(326, 20);
+            this.label8.Size = new System.Drawing.Size(319, 20);
             this.label8.TabIndex = 12;
             this.label8.Text = "Production summary (all villages)";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -417,9 +441,9 @@ namespace EasyTravian
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.label9.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.label9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label9.Location = new System.Drawing.Point(664, 224);
+            this.label9.Location = new System.Drawing.Point(650, 374);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(326, 20);
+            this.label9.Size = new System.Drawing.Size(319, 20);
             this.label9.TabIndex = 13;
             this.label9.Text = "Under construction";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -430,11 +454,11 @@ namespace EasyTravian
             this.gridConstructions.AllowUserToDeleteRows = false;
             this.gridConstructions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridConstructions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridConstructions.Location = new System.Drawing.Point(664, 247);
+            this.gridConstructions.Location = new System.Drawing.Point(650, 397);
             this.gridConstructions.Name = "gridConstructions";
             this.gridConstructions.ReadOnly = true;
             this.gridConstructions.RowHeadersVisible = false;
-            this.gridConstructions.Size = new System.Drawing.Size(326, 114);
+            this.gridConstructions.Size = new System.Drawing.Size(319, 114);
             this.gridConstructions.TabIndex = 14;
             this.gridConstructions.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.gridConstructions_DataError);
             this.gridConstructions.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.gridConstructions_DataBindingComplete);
@@ -446,11 +470,11 @@ namespace EasyTravian
             this.gridCanBuild.AllowUserToResizeRows = false;
             this.gridCanBuild.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridCanBuild.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridCanBuild.Location = new System.Drawing.Point(664, 51);
+            this.gridCanBuild.Location = new System.Drawing.Point(650, 51);
             this.gridCanBuild.Name = "gridCanBuild";
             this.gridCanBuild.ReadOnly = true;
             this.gridCanBuild.RowHeadersVisible = false;
-            this.gridCanBuild.Size = new System.Drawing.Size(326, 170);
+            this.gridCanBuild.Size = new System.Drawing.Size(319, 320);
             this.gridCanBuild.TabIndex = 16;
             this.gridCanBuild.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.gridCanBuild_RowPrePaint);
             this.gridCanBuild.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.gridCanBuild_CellPainting);
@@ -466,7 +490,7 @@ namespace EasyTravian
             this.bAutoBuild});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(993, 25);
+            this.toolStrip2.Size = new System.Drawing.Size(972, 25);
             this.toolStrip2.TabIndex = 18;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -512,7 +536,7 @@ namespace EasyTravian
             this.tpMap.Controls.Add(this.tableLayoutPanel2);
             this.tpMap.Location = new System.Drawing.Point(4, 22);
             this.tpMap.Name = "tpMap";
-            this.tpMap.Size = new System.Drawing.Size(999, 510);
+            this.tpMap.Size = new System.Drawing.Size(978, 660);
             this.tpMap.TabIndex = 2;
             this.tpMap.Text = "Map";
             this.tpMap.UseVisualStyleBackColor = true;
@@ -529,7 +553,7 @@ namespace EasyTravian
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(999, 510);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(978, 660);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // splitContainer1
@@ -549,8 +573,8 @@ namespace EasyTravian
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.splitContainer1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.splitContainer1.Size = new System.Drawing.Size(993, 469);
-            this.splitContainer1.SplitterDistance = 777;
+            this.splitContainer1.Size = new System.Drawing.Size(972, 619);
+            this.splitContainer1.SplitterDistance = 756;
             this.splitContainer1.TabIndex = 1;
             // 
             // pnlMap
@@ -558,7 +582,7 @@ namespace EasyTravian
             this.pnlMap.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMap.Location = new System.Drawing.Point(0, 0);
             this.pnlMap.Name = "pnlMap";
-            this.pnlMap.Size = new System.Drawing.Size(777, 469);
+            this.pnlMap.Size = new System.Drawing.Size(756, 619);
             this.pnlMap.TabIndex = 2;
             this.pnlMap.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMap_Paint);
             this.pnlMap.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlMap_MouseMove);
@@ -579,7 +603,7 @@ namespace EasyTravian
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.tcMapProps);
-            this.splitContainer2.Size = new System.Drawing.Size(212, 469);
+            this.splitContainer2.Size = new System.Drawing.Size(212, 619);
             this.splitContainer2.SplitterDistance = 115;
             this.splitContainer2.TabIndex = 1;
             // 
@@ -608,7 +632,7 @@ namespace EasyTravian
             this.tcMapProps.Location = new System.Drawing.Point(0, 0);
             this.tcMapProps.Name = "tcMapProps";
             this.tcMapProps.SelectedIndex = 0;
-            this.tcMapProps.Size = new System.Drawing.Size(212, 350);
+            this.tcMapProps.Size = new System.Drawing.Size(212, 500);
             this.tcMapProps.TabIndex = 0;
             this.tcMapProps.SelectedIndexChanged += new System.EventHandler(this.tcMapProps_SelectedIndexChanged);
             // 
@@ -623,7 +647,7 @@ namespace EasyTravian
             this.tpTribe.Location = new System.Drawing.Point(4, 22);
             this.tpTribe.Name = "tpTribe";
             this.tpTribe.Padding = new System.Windows.Forms.Padding(3);
-            this.tpTribe.Size = new System.Drawing.Size(204, 324);
+            this.tpTribe.Size = new System.Drawing.Size(204, 474);
             this.tpTribe.TabIndex = 2;
             this.tpTribe.Text = "Tribe";
             this.tpTribe.UseVisualStyleBackColor = true;
@@ -692,7 +716,7 @@ namespace EasyTravian
             this.tpAllies.Location = new System.Drawing.Point(4, 22);
             this.tpAllies.Name = "tpAllies";
             this.tpAllies.Padding = new System.Windows.Forms.Padding(3);
-            this.tpAllies.Size = new System.Drawing.Size(204, 324);
+            this.tpAllies.Size = new System.Drawing.Size(204, 474);
             this.tpAllies.TabIndex = 0;
             this.tpAllies.Text = "Allies";
             this.tpAllies.UseVisualStyleBackColor = true;
@@ -715,8 +739,8 @@ namespace EasyTravian
             this.splitContainer3.Panel2.Controls.Add(this.bMapAlliesAdd);
             this.splitContainer3.Panel2.Controls.Add(this.bMapAlliesColor);
             this.splitContainer3.Panel2.Controls.Add(this.cbMapAllies);
-            this.splitContainer3.Size = new System.Drawing.Size(198, 318);
-            this.splitContainer3.SplitterDistance = 255;
+            this.splitContainer3.Size = new System.Drawing.Size(198, 468);
+            this.splitContainer3.SplitterDistance = 405;
             this.splitContainer3.TabIndex = 0;
             // 
             // lvMapAllies
@@ -724,7 +748,7 @@ namespace EasyTravian
             this.lvMapAllies.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvMapAllies.Location = new System.Drawing.Point(0, 0);
             this.lvMapAllies.Name = "lvMapAllies";
-            this.lvMapAllies.Size = new System.Drawing.Size(198, 255);
+            this.lvMapAllies.Size = new System.Drawing.Size(198, 405);
             this.lvMapAllies.TabIndex = 0;
             this.lvMapAllies.UseCompatibleStateImageBehavior = false;
             this.lvMapAllies.SelectedIndexChanged += new System.EventHandler(this.lvMapAllies_SelectedIndexChanged);
@@ -778,7 +802,7 @@ namespace EasyTravian
             this.tpPopulation.Location = new System.Drawing.Point(4, 22);
             this.tpPopulation.Name = "tpPopulation";
             this.tpPopulation.Padding = new System.Windows.Forms.Padding(3);
-            this.tpPopulation.Size = new System.Drawing.Size(204, 324);
+            this.tpPopulation.Size = new System.Drawing.Size(204, 474);
             this.tpPopulation.TabIndex = 1;
             this.tpPopulation.Text = "Population";
             this.tpPopulation.UseVisualStyleBackColor = true;
@@ -797,7 +821,7 @@ namespace EasyTravian
             // 
             this.tpPlayers.Location = new System.Drawing.Point(4, 22);
             this.tpPlayers.Name = "tpPlayers";
-            this.tpPlayers.Size = new System.Drawing.Size(204, 324);
+            this.tpPlayers.Size = new System.Drawing.Size(204, 474);
             this.tpPlayers.TabIndex = 3;
             this.tpPlayers.Text = "Players";
             this.tpPlayers.UseVisualStyleBackColor = true;
@@ -809,7 +833,7 @@ namespace EasyTravian
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(993, 29);
+            this.panel4.Size = new System.Drawing.Size(972, 29);
             this.panel4.TabIndex = 2;
             // 
             // button2
@@ -839,7 +863,7 @@ namespace EasyTravian
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(999, 510);
+            this.tabPage2.Size = new System.Drawing.Size(978, 660);
             this.tabPage2.TabIndex = 3;
             this.tabPage2.Text = "Reports";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -855,7 +879,7 @@ namespace EasyTravian
             this.tabPage1.Controls.Add(this.txtRecipients);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(999, 510);
+            this.tabPage1.Size = new System.Drawing.Size(978, 660);
             this.tabPage1.TabIndex = 4;
             this.tabPage1.Text = "Mail";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -934,7 +958,7 @@ namespace EasyTravian
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1013, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(992, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -1033,11 +1057,42 @@ namespace EasyTravian
             this.ContentPanel.AutoScroll = true;
             this.ContentPanel.Size = new System.Drawing.Size(792, 541);
             // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.btnClipboardUrl);
+            this.panel5.Controls.Add(this.txtbxUri);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(3, 3);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(966, 24);
+            this.panel5.TabIndex = 4;
+            // 
+            // txtbxUri
+            // 
+            this.txtbxUri.Dock = System.Windows.Forms.DockStyle.Left;
+            this.txtbxUri.Location = new System.Drawing.Point(0, 0);
+            this.txtbxUri.Name = "txtbxUri";
+            this.txtbxUri.Size = new System.Drawing.Size(892, 20);
+            this.txtbxUri.TabIndex = 3;
+            this.txtbxUri.Click += new System.EventHandler(this.txtbxUri_Click);
+            // 
+            // btnClipboardUrl
+            // 
+            this.btnClipboardUrl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClipboardUrl.Location = new System.Drawing.Point(898, 2);
+            this.btnClipboardUrl.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.btnClipboardUrl.Name = "btnClipboardUrl";
+            this.btnClipboardUrl.Size = new System.Drawing.Size(65, 22);
+            this.btnClipboardUrl.TabIndex = 4;
+            this.btnClipboardUrl.Text = "Clipboard";
+            this.btnClipboardUrl.UseVisualStyleBackColor = true;
+            this.btnClipboardUrl.Click += new System.EventHandler(this.btnClipboardUrl_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1013, 566);
+            this.ClientSize = new System.Drawing.Size(992, 716);
             this.Controls.Add(this.toolStripContainer1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
@@ -1055,6 +1110,7 @@ namespace EasyTravian
             this.tcMain.ResumeLayout(false);
             this.tpBrowser.ResumeLayout(false);
             this.pnlBrowser.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
             this.tpBuild.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -1090,6 +1146,8 @@ namespace EasyTravian
             this.tabPage1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1171,6 +1229,10 @@ namespace EasyTravian
         private System.Windows.Forms.TextBox txtBody;
         private System.Windows.Forms.TextBox txtRecipients;
         private System.Windows.Forms.TableLayoutPanel layMain;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Button btnClipboardUrl;
+        private System.Windows.Forms.TextBox txtbxUri;
     }
 }
 

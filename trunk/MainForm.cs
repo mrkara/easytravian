@@ -94,7 +94,8 @@ namespace EasyTravian
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            tcMain.TabIndex = 1;
+            // tcMain.TabIndex = 1;
+            tcMain.SelectTab(1);
 
             Globals.Translator.TranslateForm(this);
         }
@@ -810,6 +811,27 @@ namespace EasyTravian
         {
             RegisterForm f = new RegisterForm();
             f.ShowDialog();
+        }
+
+        private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void webBrowser_Navigated(object sender, WebBrowserNavigatedEventArgs e)
+        {
+            txtbxUri.Text = webBrowser.Url.AbsoluteUri;
+        }
+
+        private void btnClipboardUrl_Click(object sender, EventArgs e)
+        {
+            if (txtbxUri.Text != string.Empty)
+                Clipboard.SetDataObject(txtbxUri.Text);
+        }
+
+        private void txtbxUri_Click(object sender, EventArgs e)
+        {
+            txtbxUri.SelectAll();
         }
 
     }
