@@ -50,7 +50,7 @@ namespace EasyTravian
             if (Data.Tribe == null)
             {
                 Navigate("dorf2.php");
-
+                // mi ez? falat nézi? Földfal, Cölöpfal, Kőfal
                 if (Globals.Web.Document.Body.InnerHtml.Replace("&amp;", "&").Contains("<DIV class=\"d2_x d2_1\">"))
                 {
                     Data.Tribe = TribeType.Gaul;
@@ -240,8 +240,9 @@ namespace EasyTravian
         /// </summary>
         private void ParseVillages()
         {
-            //többfalus
-            if (xpath.ElementExists("id('lright1')/a/span"))
+            //többfalus (Falvak:)
+            // 2.0: if (xpath.ElementExists("id('lright1')/a/span"))
+            if (xpath.ElementExists("id('vlist')/a/span"))
             {
 
                 Regex rex = new Regex(@"newdid=\d+.*");
@@ -322,7 +323,8 @@ namespace EasyTravian
             //egyfalus
             else
             {
-                string name = xpath.SelectElement("id('lmid2')/div[1]/h1").InnerText;
+                // 2.0: string name = xpath.SelectElement("id('lmid2')/div[1]/h1").InnerText;
+                string name = xpath.SelectElement("id('content')/h1").InnerText;
                 if (!Data.Villages.ContainsKey(0))
                 {
                     Data.Villages[0] = new VillageData();

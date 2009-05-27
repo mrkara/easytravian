@@ -23,6 +23,14 @@ namespace EasyTravian
         private int ActiveVillage;
         bool tryToLogin = false;
 
+        private bool plusEnabled = false; // 15 aranyos TravianPlus
+
+        public bool PlusEnabled
+        {
+            get { return plusEnabled; }
+            set { plusEnabled = value; }
+        }
+
         public TravianBase()
         {
             Globals.Web.DocumentCompleted += Web_DocumentCompleted;
@@ -34,6 +42,22 @@ namespace EasyTravian
         /// Odainternetezik az oldalra és meg is várja, míg a böngészõ letötlt mindent
         /// </summary>
         /// <param name="url"></param>
+        public void WaitForBrowser()
+        { 
+                Application.UseWaitCursor = true;
+                try
+                {
+                    while (!pageLoaded)
+                    {
+                        Application.DoEvents();
+                        Thread.Sleep(100);
+                    }
+                }
+                finally
+                {
+                    Application.UseWaitCursor = false;
+                }
+        }
         private void Navigate(string url)
         {
             if (url != null && url.Length > 0)
@@ -90,11 +114,17 @@ namespace EasyTravian
         /// </summary>
         void DoLogin()
         {
-            if (xpath.SetAttribute("id('lmid3')/form/table/tbody/tr/td/table/tbody/tr[1]/td/input", "value", Globals.Cfg.UserName)
+            if (xpath.ElementExists("id('content')/div/form/table/tbody/tr[1]/td[2]/input"))
+                MessageBox.Show("sss");
+            
+            //if (xpath.SetAttribute("id('lmid3')/form/table/tbody/tr/td/table/tbody/tr[1]/td/input", "value", Globals.Cfg.UserName)
+            if (xpath.SetAttribute("id('content')/div/form/table/tbody/tr[1]/td[2]/input", "value", Globals.Cfg.UserName)
                &&
-               xpath.SetAttribute("id('lmid3')/form/table/tbody/tr/td/table/tbody/tr[2]/td/input", "value", Globals.Cfg.PassWord))
+               //xpath.SetAttribute("id('lmid3')/form/table/tbody/tr/td/table/tbody/tr[2]/td/input", "value", Globals.Cfg.PassWord))
+               xpath.SetAttribute("id('content')/div/form/table/tbody/tr[2]/td[2]/input", "value", Globals.Cfg.PassWord))
             {
-                HtmlElement el = xpath.SelectElement("id('lmid3')/form/p[2]/input[2]");
+                // 2.0: HtmlElement el = xpath.SelectElement("id('lmid3')/form/p[2]/input[2]");
+                HtmlElement el = xpath.SelectElement("id('content')/div/form/p");
                 el.InvokeMember("Click");
             }
 
@@ -109,7 +139,7 @@ namespace EasyTravian
             //if (TraviBase.Data.Villages.Count == 0)
             try
             {
-                Navigate("login.php");
+                Navigate("login.php?del_cookie");
                 GetBasicInfo();
             }
             catch 
@@ -127,7 +157,8 @@ namespace EasyTravian
         /// <param name="e"></param>
         void Web_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
-            if (xpath.ElementExists("id('lmid3')/form/table/tbody/tr/td/table/tbody/tr[1]/td/input"))
+            // 2.0: if (xpath.ElementExists("id('lmid3')/form/table/tbody/tr/td/table/tbody/tr[1]/td/input"))
+            if (xpath.ElementExists("id('content')/div/form/table/tbody/tr[1]/td[2]/input"))
             {
                 if (tryToLogin)
                 {

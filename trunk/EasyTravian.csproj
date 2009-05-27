@@ -78,6 +78,7 @@
     <Compile Include="Map\MapCollector.cs" />
     <Compile Include="Map\MapPainter.cs" />
     <Compile Include="Map\TravianBaseMap.cs" />
+    <Compile Include="Market\TravianBaseMarket.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MainForm.resx">
@@ -238,7 +239,7 @@
   -->
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties Reactor_Enabled="1" Reactor_Lib="0" Reactor_Automatic="1" Reactor_Commands="" Reactor_Project="" Reactor_Output="[main_assembly_dir]EasyTravian_Secure\EasyTravian.exe" />
+      <UserProperties Reactor_Output="[main_assembly_dir]EasyTravian_Secure\EasyTravian.exe" Reactor_Project="" Reactor_Commands="" Reactor_Automatic="1" Reactor_Lib="0" Reactor_Enabled="1" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

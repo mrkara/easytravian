@@ -269,5 +269,17 @@ namespace EasyTravian
             TraviBase.SendMail(recipients, subject, body);
         }
 
+        public void SendResource(int _lumber, int _clay, int _iron, int _crop, int _x, int _y)
+        {
+            TraviBase.SendResource( _lumber, _clay, _iron, _crop, _x, _y);
+        }
+
+        public bool PlusEnabled 
+        { 
+            get      
+            {
+                return TraviBase.PlusEnabled;
+            }
+        }
     }
 }
