@@ -38,10 +38,17 @@ namespace EasyTravian
                         //if (level == 1)
                         //    level = 0;
                     }
-
                     try
                     {
                         element = element.GetElementsByTagName(tag)[level];
+                        /*
+                        element = element.GetElementsByTagName(tag)[0];
+                        while (level > 0)
+                        {
+                            element = element.NextSibling;
+                            level--;
+                        }
+                        */
                     }
                     catch (Exception)
                     {

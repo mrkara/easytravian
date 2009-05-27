@@ -834,5 +834,16 @@ namespace EasyTravian
             txtbxUri.SelectAll();
         }
 
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            int _lumber = Convert.ToInt32(txtbxLumber.Text);
+            int _clay = Convert.ToInt32(txtbxClay.Text);
+            int _iron = Convert.ToInt32(txtbxIron.Text);
+            int _crop = Convert.ToInt32(txtbxCrop.Text);
+            int _x = Convert.ToInt32(txtbxCoordX.Text);
+            int _y = Convert.ToInt32(txtbxCoordY.Text);
+            controller.SendResource(_lumber, _clay, _iron, _crop, _x, _y);
+        }
+
     }
 }
