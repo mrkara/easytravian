@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 
 namespace EasyTravian
 {
+    //b0y0
     public partial class TravianBase
     {
         /// <summary>
@@ -346,9 +347,10 @@ namespace EasyTravian
         /// <param name="VillageName"></param>
         private void ParseResources(int VillageId)
         {
-            HtmlElement f = Globals.Web.Document.GetElementById("lmid2").GetElementsByTagName("div")[1];
-            if (f.InnerText != null) //hűség szarság...
-                f = Globals.Web.Document.GetElementById("lmid2").GetElementsByTagName("div")[2];
+            HtmlElement f = Globals.Web.Document.GetElementById("f6");
+            //HtmlElement f = Globals.Web.Document.GetElementById("lmid2").GetElementsByTagName("div")[1];
+            //if (f.InnerText != null) //hűség szarság...
+            //    f = Globals.Web.Document.GetElementById("lmid2").GetElementsByTagName("div")[2];
 
             //resource map
             int r = int.Parse(f.Id.Substring(1, 1));
