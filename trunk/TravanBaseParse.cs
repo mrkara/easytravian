@@ -50,6 +50,14 @@ namespace EasyTravian
         {
             if (Data.Tribe == null)
             {
+                // id('content')/table[1]/tbody/tr[5]/td[2]
+            }
+        }
+
+        private void ParseTribe2()
+        {
+            if (Data.Tribe == null)
+            {
                 Navigate("dorf2.php");
                 // mi ez? falat nézi? Földfal, Cölöpfal, Kőfal
                 // id('map2')/area[22]
