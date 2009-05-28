@@ -51,6 +51,7 @@ namespace EasyTravian
             {
                 Navigate("dorf2.php");
                 // mi ez? falat nézi? Földfal, Cölöpfal, Kőfal
+                // id('map2')/area[22]
                 if (Globals.Web.Document.Body.InnerHtml.Replace("&amp;", "&").Contains("<DIV class=\"d2_x d2_1\">"))
                 {
                     Data.Tribe = TribeType.Gaul;
