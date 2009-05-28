@@ -134,10 +134,17 @@ namespace EasyTravian
             }
         }
 
+        private void ParseCentre()
+        {
+            // <div class="village2_map d2_1">
+            HtmlElement f = Globals.Web.Document.GetElementById("content").GetElementsByTagName("div")[1];
+
+
+        }
         /// <summary>
         /// épületek és szintjeik kimojolása
         /// </summary>
-        private void ParseCentre()
+        private void ParseCentre2()
         {
             /*
             HtmlElement elem = xpath.SelectElement("id('lmid2')/div[1]/h1");
@@ -374,7 +381,7 @@ namespace EasyTravian
         private void ParseResources(int VillageId)
         {
             HtmlElement f = Globals.Web.Document.GetElementById("content").GetElementsByTagName("div")[1];
-            if (f.InnerText.Trim() != "") //hűség szarság...
+            if (f.InnerText.Trim() != "") //hűség szarság... <div id="dzp" class="b f7  c3">Hűség 57%</div>
                 f = Globals.Web.Document.GetElementById("content").GetElementsByTagName("div")[2];
 
             //resource map
