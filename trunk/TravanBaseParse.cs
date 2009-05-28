@@ -373,10 +373,9 @@ namespace EasyTravian
         /// <param name="VillageName"></param>
         private void ParseResources(int VillageId)
         {
-            HtmlElement f = Globals.Web.Document.GetElementById("f6");
-            //HtmlElement f = Globals.Web.Document.GetElementById("lmid2").GetElementsByTagName("div")[1];
-            //if (f.InnerText != null) //hűség szarság...
-            //    f = Globals.Web.Document.GetElementById("lmid2").GetElementsByTagName("div")[2];
+            HtmlElement f = Globals.Web.Document.GetElementById("content").GetElementsByTagName("div")[1];
+            if (f.InnerText.Trim() != "") //hűség szarság...
+                f = Globals.Web.Document.GetElementById("content").GetElementsByTagName("div")[2];
 
             //resource map
             int r = int.Parse(f.Id.Substring(1, 1));
@@ -391,18 +390,20 @@ namespace EasyTravian
             foreach (HtmlElement e in f.GetElementsByTagName("img"))
             {
                 string eclass = e.GetAttribute("className");
-                string img = e.GetAttribute("src");
-                string[] imarr = img.Split('/');
+                string[] eclassarr = eclass.Split(' ');
 
-                int id = int.Parse(eclass.Substring(2, eclass.Length - 2));
-                int lev = int.Parse((imarr[imarr.Length - 1].Substring(1, imarr[imarr.Length - 1].Length - 5)));
-                x[id-1] = true;
-                if (lev != Data.Villages[VillageId].Resources[id].Level)
+                if (eclassarr.Length > 1)
                 {
-                    Data.Villages[VillageId].Resources[id].Level = lev;
-                    Data.Villages[VillageId].Resources[id].NextLevelCost.Clear();
+                    int id = int.Parse(eclassarr[1].Substring(2, eclassarr[1].Length-2 ));
+                    int lev = int.Parse(eclassarr[2].Substring(5, eclassarr[2].Length - 5));
+
+                    x[id - 1] = true;
+                    if (lev != Data.Villages[VillageId].Resources[id].Level)
+                    {
+                        Data.Villages[VillageId].Resources[id].Level = lev;
+                        Data.Villages[VillageId].Resources[id].NextLevelCost.Clear();
+                    }
                 }
-                 
                     
 
                 //Villages[VillageName].Resources[id].href = 
