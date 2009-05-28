@@ -247,13 +247,16 @@ namespace EasyTravian
             {
 
                 Regex rex = new Regex(@"newdid=\d+.*");
-                MatchCollection matches = rex.Matches(Globals.Web.Document.GetElementById("lright1").InnerHtml.Replace("&amp;", "&"));
+                MatchCollection matches = rex.Matches(Globals.Web.Document.GetElementById("vlist").InnerHtml.Replace("&amp;", "&"));
+                //MatchCollection matches = rex.Matches(Globals.Web.Document.GetElementById("lright1").InnerHtml.Replace("&amp;", "&"));
 
                 Regex rexx = new Regex(@"right dlist1.*");
-                MatchCollection matchesx = rexx.Matches(Globals.Web.Document.GetElementById("lright1").InnerHtml.Replace("&amp;", "&"));
+                MatchCollection matchesx = rexx.Matches(Globals.Web.Document.GetElementById("vlist").InnerHtml.Replace("&amp;", "&"));
+                //MatchCollection matchesx = rexx.Matches(Globals.Web.Document.GetElementById("lright1").InnerHtml.Replace("&amp;", "&"));
 
                 Regex rexy = new Regex(@"left dlist3.*");
-                MatchCollection matchesy = rexy.Matches(Globals.Web.Document.GetElementById("lright1").InnerHtml.Replace("&amp;", "&"));
+                MatchCollection matchesy = rexy.Matches(Globals.Web.Document.GetElementById("vlist").InnerHtml.Replace("&amp;", "&"));
+                //MatchCollection matchesy = rexy.Matches(Globals.Web.Document.GetElementById("lright1").InnerHtml.Replace("&amp;", "&"));
 
                 for (int i = 0; i < matches.Count; i++)
                 {
