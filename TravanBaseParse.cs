@@ -50,7 +50,25 @@ namespace EasyTravian
         {
             if (Data.Tribe == null)
             {
-                // id('content')/table[1]/tbody/tr[5]/td[2]
+                // profil linkje
+                HtmlElement profil = xpath.SelectElement("id('sleft')/p/a[3]");
+                string href = profil.GetAttribute("href");
+                Navigate(href);
+
+                HtmlElement tribe = xpath.SelectElement("id('content')/table[1]/tbody/tr[5]/td[2]");
+
+                switch (tribe.InnerText)
+                {
+                    case "Római":
+                        Data.Tribe = TribeType.Roman;
+                        break;
+                    case "Germán":
+                        Data.Tribe = TribeType.Teuton;
+                        break;
+                    case "Gall":
+                        Data.Tribe = TribeType.Gaul;
+                        break;
+                }
             }
         }
 
