@@ -1,0 +1,1 @@
+Auto builder function and other stuff for travian browser game.
